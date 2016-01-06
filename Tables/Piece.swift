@@ -21,8 +21,8 @@ class Piece: SKSpriteNode {
     }
     
     init(size: CGSize) {
-        let texture = SKTexture()
-        super.init(texture: nil, color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 1), size: size)
+        let texture = SKTexture(imageNamed: "piece_white")
+        super.init(texture: texture, color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 1), size: size)
     }
     
     func set(num: Int) {

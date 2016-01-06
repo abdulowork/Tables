@@ -18,14 +18,14 @@ class Table: SKSpriteNode {
     
     init(position: CGPoint, size: CGSize, bottom: Bool) {
         let texture = SKTexture()
-        super.init(texture: texture, color: UIColor.init(red: 1, green: 1, blue: 1, alpha: 1), size: size)
+        super.init(texture: nil, color: UIColor.init(red: 0, green: 1, blue: 0, alpha: 0.3), size: size)
         self.position = position
         self.bottom = bottom
     }
     
     init() {
         let texture = SKTexture()
-        super.init(texture: texture, color: UIColor.init(red: 1, green: 1, blue: 1, alpha: 1), size: CGSize())
+        super.init(texture: nil, color: UIColor.init(red: 1, green: 1, blue: 1, alpha: 0), size: CGSize())
     }
     
     func addPiece() {
@@ -33,13 +33,13 @@ class Table: SKSpriteNode {
         addChild(a)
         
         if bottom {
-            let y1 = self.frame.minY-self.position.y+a.frame.height/2+5
-            let y2 = (a.frame.height+5)*CGFloat((self.children.count-2)) //Scaling factor for number of pieces in a table
+            let y1 = self.frame.minY-self.position.y+a.frame.height/2+24
+            let y2 = (a.frame.height)*CGFloat((self.children.count-2)) //Scaling factor for number of pieces in a table, replace with another logic
             a.position = CGPoint(x: 0, y: y1+y2)
         }
         else {
-            let y1 = self.frame.maxY-self.position.y-a.frame.height/2-5
-            let y2 = (a.frame.height+5)*CGFloat((self.children.count-2)) //Scaling factor for number of pieces in a table
+            let y1 = self.frame.maxY-self.position.y-a.frame.height/2-28
+            let y2 = (a.frame.height)*CGFloat((self.children.count-2)) //Scaling factor for number of pieces in a table
             a.position = CGPoint(x: 0, y: y1-y2)
         }
     }

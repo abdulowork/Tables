@@ -16,8 +16,10 @@ class Board: SKSpriteNode {
     }
     
     init(size: CGSize) {
-        super.init(texture: SKTexture(imageNamed: "Wood_Texture.jpg"), color: UIColor(red: 1, green: 0, blue: 0, alpha: 1), size: size)
+        super.init(texture: SKTexture(imageNamed: "board_frame"), color: UIColor(red: 1, green: 0, blue: 0, alpha: 1), size: size)
         self.zPosition = -0.1
     }
+    
+    //addTable(position: CGPoint)
     
 }

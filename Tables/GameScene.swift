@@ -20,45 +20,67 @@ class GameScene: SKScene {
         /* Setup your scene here */
         
         //self.backgroundColor = UIColor.init(red: 1, green: 0.5, blue: 0.5, alpha: 1)
-        
-        let tableWidthModifier = 0.02*frame.width
+        let frameScale = 1
+        //print(pare.width)
+        let tableWidthModifier = CGFloat(10)//0.02*frame.width
         let tableHeightModifier = 0.01*frame.height
-        let tableWidth = (self.frame.width/12)-tableWidthModifier
+        let tableWidth = CGFloat(115*frameScale)//(self.frame.width/12)-tableWidthModifier
         let tableHeight = (self.frame.height/2)-tableHeightModifier
-        let tableX = (self.frame.width)/12
+        let tableX = CGFloat(125*frameScale)//(self.frame.width)/12
         let tableY = (self.frame.height/4)+tableHeightModifier/2
-        
+        //-(tableWidth+tableWidthModifier)
         myBoard.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
         for i in (-6)...(-1) {
             myBoard.addChild(Table.init(
-                position: CGPoint(x: tableX*CGFloat(i)+(tableWidth+tableWidthModifier)/2, y: -tableY),
+                position: CGPoint(x: tableX*CGFloat(i)-CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: -tableY),
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: true
                 ))
             myBoard.addChild(Table.init(
-                position: CGPoint(x: tableX*CGFloat(i)+(tableWidth+tableWidthModifier)/2, y: tableY),
+                position: CGPoint(x: tableX*CGFloat(i)-CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: tableY),
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: false
                 ))
         }
         for i in (1)...(6) {
             myBoard.addChild(Table.init(
-                position: CGPoint(x: tableX*CGFloat(i)-(tableWidth+tableWidthModifier)/2, y: -tableY),
+                position: CGPoint(x: tableX*CGFloat(i)+CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: -tableY),
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: true
                 ))
             myBoard.addChild(Table.init(
-                position: CGPoint(x: tableX*CGFloat(i)-(tableWidth+tableWidthModifier)/2, y: tableY),
+                position: CGPoint(x: tableX*CGFloat(i)+CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: tableY),
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: false
                 ))
         }
         
+//        myBoard.addChild(Table.init(
+//                        position: CGPoint(x: tableX+CGFloat(10*abs(0))/2, y: tableY),
+//                        size: CGSize(width: tableWidth, height: tableHeight),
+//                        bottom: true
+//                        ))
+//        myBoard.addChild(Table.init(
+//            position: CGPoint(x: tableX*2+CGFloat(10*abs(1))/2, y: tableY),
+//            size: CGSize(width: tableWidth, height: tableHeight),
+//            bottom: true
+//            ))
+//        myBoard.addChild(Table.init(
+//            position: CGPoint(x: tableX*3+CGFloat(10*abs(2))/2, y: tableY),
+//            size: CGSize(width: tableWidth, height: tableHeight),
+//            bottom: true
+//            ))
+//        myBoard.addChild(Table.init(
+//                        position: CGPoint(x: tableX+CGFloat(10*abs(0))/2, y: -tableY),
+//                        size: CGSize(width: tableWidth, height: tableHeight),
+//                        bottom: true
+//                        ))
+        
         var j = 1
         for table in myBoard.children {
             let lable = SKLabelNode(text: String(j))
-            lable.fontColor = UIColor(red: 0.25, green: 0.25, blue: 0, alpha: 1)
+            lable.fontColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
             table.addChild(lable)
             j++
         }
@@ -80,10 +102,11 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        //Переписать под классовый метод Table.movePieceTo(Table)
         for touch in touches {
             let location = touch.locationInNode(self)
             let nodesWhereTouched = nodesAtPoint(location)
-            
+            print(location)
             if (!selection) {
                 for node in nodesWhereTouched {
                     if (node is Table) {
