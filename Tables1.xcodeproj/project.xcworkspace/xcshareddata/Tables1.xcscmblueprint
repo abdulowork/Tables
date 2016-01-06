@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A0FDAABCAE6C0A402D4EEC84A4B3E9F72C275B6A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A0FDAABCAE6C0A402D4EEC84A4B3E9F72C275B6A" : 0,
+    "966D60AE252B0464B10AF01FA613AB135E531608" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4A60947C-6B37-471E-BD26-9895A5FDAB88",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A0FDAABCAE6C0A402D4EEC84A4B3E9F72C275B6A" : "Tables1\/",
+    "966D60AE252B0464B10AF01FA613AB135E531608" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Tables1",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Tables1.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:BIBO-RAM\/char-server.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "966D60AE252B0464B10AF01FA613AB135E531608"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:biboran\/Tables.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A0FDAABCAE6C0A402D4EEC84A4B3E9F72C275B6A"
+    }
+  ]
+}

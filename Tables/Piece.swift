@@ -10,8 +10,10 @@ import Foundation
 import SpriteKit
 
 class Piece: SKSpriteNode {
+    
     var id = Int()
     var table = Int()
+    var selected = false
     
 
     required init(coder aDecoder: NSCoder) {

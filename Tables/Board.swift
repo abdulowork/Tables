@@ -9,14 +9,15 @@
 import Foundation
 import SpriteKit
 
-class Board: SKNode {
+class Board: SKSpriteNode {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
-    override init() {
-        super.init()
+    init(size: CGSize) {
+        super.init(texture: SKTexture(imageNamed: "Wood_Texture.jpg"), color: UIColor(red: 1, green: 0, blue: 0, alpha: 1), size: size)
+        self.zPosition = -0.1
     }
     
 }
