@@ -11,6 +11,7 @@ import SpriteKit
 class Table: SKSpriteNode {
     
     var bottom = Bool()
+    var id = Int()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -28,8 +29,8 @@ class Table: SKSpriteNode {
         super.init(texture: nil, color: UIColor.init(red: 1, green: 1, blue: 1, alpha: 0), size: CGSize())
     }
     
-    func addPiece() {
-        let a = Piece(size: CGSize(width: self.frame.width, height: self.frame.width))
+    func addPiece(side: String) {
+        let a = Piece(size: CGSize(width: self.frame.width, height: self.frame.width), side: side)
         addChild(a)
         
         if bottom {
@@ -44,16 +45,27 @@ class Table: SKSpriteNode {
         }
     }
     
-    func removePiece() {
-        if (self.children.last is Piece) {
+    
+    func removePiece() -> Piece? {
+        let piece = self.children.last
+        if (piece is Piece) {
             self.children.last?.removeFromParent()
+            return (piece as! Piece)
         }
+        return nil
     }
     
     func selectTopPiece() -> Bool {
         if (self.children.last is Piece) {
             let a = (self.children.last as! Piece)
             a.color = UIColor.init(red: 0, green: 0, blue: 1, alpha: 1)
+            switch a.side {
+                case "white":
+                a.texture = SKTexture(imageNamed: "piece_white_selected")
+                case "black":
+                a.texture = SKTexture(imageNamed: "piece_black_selected")
+            default: break
+            }
             a.selected = true
             return true
         }
@@ -64,6 +76,13 @@ class Table: SKSpriteNode {
         if (self.children.last is Piece) {
             let a = (self.children.last as! Piece)
             a.color = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
+            switch a.side {
+            case "white":
+                a.texture = SKTexture(imageNamed: "piece_white_normal")
+            case "black":
+                a.texture = SKTexture(imageNamed: "piece_black_normal")
+            default: break
+            }
             a.selected = false
             return true
         }

@@ -19,7 +19,6 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        //self.backgroundColor = UIColor.init(red: 1, green: 0.5, blue: 0.5, alpha: 1)
         let frameScale = 1
         //print(pare.width)
         let tableWidthModifier = CGFloat(10)//0.02*frame.width
@@ -37,11 +36,6 @@ class GameScene: SKScene {
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: true
                 ))
-            myBoard.addChild(Table.init(
-                position: CGPoint(x: tableX*CGFloat(i)-CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: tableY),
-                size: CGSize(width: tableWidth, height: tableHeight),
-                bottom: false
-                ))
         }
         for i in (1)...(6) {
             myBoard.addChild(Table.init(
@@ -49,51 +43,52 @@ class GameScene: SKScene {
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: true
                 ))
+        }
+        for var i=6; i>0; i-- {
             myBoard.addChild(Table.init(
                 position: CGPoint(x: tableX*CGFloat(i)+CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: tableY),
                 size: CGSize(width: tableWidth, height: tableHeight),
                 bottom: false
                 ))
         }
-        
-//        myBoard.addChild(Table.init(
-//                        position: CGPoint(x: tableX+CGFloat(10*abs(0))/2, y: tableY),
-//                        size: CGSize(width: tableWidth, height: tableHeight),
-//                        bottom: true
-//                        ))
-//        myBoard.addChild(Table.init(
-//            position: CGPoint(x: tableX*2+CGFloat(10*abs(1))/2, y: tableY),
-//            size: CGSize(width: tableWidth, height: tableHeight),
-//            bottom: true
-//            ))
-//        myBoard.addChild(Table.init(
-//            position: CGPoint(x: tableX*3+CGFloat(10*abs(2))/2, y: tableY),
-//            size: CGSize(width: tableWidth, height: tableHeight),
-//            bottom: true
-//            ))
-//        myBoard.addChild(Table.init(
-//                        position: CGPoint(x: tableX+CGFloat(10*abs(0))/2, y: -tableY),
-//                        size: CGSize(width: tableWidth, height: tableHeight),
-//                        bottom: true
-//                        ))
+        for var i=(-1); i>(-7); i-- {
+            myBoard.addChild(Table.init(
+                position: CGPoint(x: tableX*CGFloat(i)-CGFloat(tableWidthModifier*CGFloat((abs(i)-1))), y: tableY),
+                size: CGSize(width: tableWidth, height: tableHeight),
+                bottom: false
+                ))
+        }
+
         
         var j = 1
         for table in myBoard.children {
             let lable = SKLabelNode(text: String(j))
             lable.fontColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+            (table as! Table).id = j
             table.addChild(lable)
             j++
         }
         
-        let workingTableBottom = myBoard.children[0] as! Table
-        workingTableBottom.bottom = true
-        workingTableBottom.addPiece()
-        workingTableBottom.addPiece()
+//        let workingTableBottom = myBoard.children[0] as! Table
+//        workingTableBottom.addPiece("black")
+//        workingTableBottom.addPiece("black")
+//        
+//        let workingTableTop = myBoard.children[myBoard.children.count-1] as! Table
+//        workingTableTop.addPiece("white")
+//        workingTableTop.addPiece("white")
         
-        let workingTableTop = myBoard.children[1] as! Table
-        workingTableTop.bottom = false
-        workingTableTop.addPiece()
-        workingTableTop.addPiece()
+        //setting up the board
+        for i in myBoard.children {
+            let table = (i as! Table)
+            switch table.id {
+            case 1, 16:
+                for _ in 1...2 {
+                    table.addPiece("white")
+                }
+                
+            default: "Nothing is created"
+            }
+        }
         
         self.addChild(myBoard)
     }
@@ -106,7 +101,6 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             let nodesWhereTouched = nodesAtPoint(location)
-            print(location)
             if (!selection) {
                 for node in nodesWhereTouched {
                     if (node is Table) {
@@ -129,8 +123,7 @@ class GameScene: SKScene {
                             selection = false
                         }
                         else {
-                            selectedTable.removePiece()
-                            table?.addPiece()
+                            table?.addPiece((selectedTable.removePiece()?.side)!)
                             selection = false
                         }
                     }

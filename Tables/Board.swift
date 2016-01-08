@@ -20,6 +20,6 @@ class Board: SKSpriteNode {
         self.zPosition = -0.1
     }
     
-    //addTable(position: CGPoint)
+//    addTable(position: CGPoint)
     
 }

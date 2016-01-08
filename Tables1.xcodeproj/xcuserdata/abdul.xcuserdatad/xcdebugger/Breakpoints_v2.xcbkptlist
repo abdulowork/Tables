@@ -19,5 +19,129 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tables/GameScene.swift"
+            timestampString = "473811437.904672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "didMoveToView(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tables1.GameScene.selectedTable.getter : Tables1.Table"
+                  moduleName = "Tables1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdul/India/Tables1/Tables/GameScene.swift"
+                  timestampString = "473809652.77058"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tables1.GameScene.selectedTable.setter : Tables1.Table"
+                  moduleName = "Tables1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdul/India/Tables1/Tables/GameScene.swift"
+                  timestampString = "473809652.775903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tables1.GameScene.selectedTable.materializeForSet : Tables1.Table"
+                  moduleName = "Tables1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdul/India/Tables1/Tables/GameScene.swift"
+                  timestampString = "473809652.776076"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tables1.GameScene.init (Tables1.GameScene.Type)(size : __C.CGSize) -&gt; Tables1.GameScene"
+                  moduleName = "Tables1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdul/India/Tables1/Tables/GameScene.swift"
+                  timestampString = "473809652.776209"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "75">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tables1.GameScene.init (Tables1.GameScene.Type)() -&gt; Tables1.GameScene"
+                  moduleName = "Tables1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdul/India/Tables1/Tables/GameScene.swift"
+                  timestampString = "473809652.776329"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "55">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tables1.GameScene.init (Tables1.GameScene.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Tables1.GameScene&gt;"
+                  moduleName = "Tables1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdul/India/Tables1/Tables/GameScene.swift"
+                  timestampString = "473809652.776443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "63">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tables/GameScene.swift"
+            timestampString = "473968590.358523"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "touchesBegan(_:withEvent:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
