@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9645DF911C4185E800D817B9 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 9645DF901C4185E800D817B9 /* TODO.md */; };
 		965499351C402A7900449F0F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965499341C402A7900449F0F /* Player.swift */; };
 		9657BB841C3D8120002D7D04 /* board_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 9657BB831C3D8120002D7D04 /* board_frame.png */; };
 		9657BB8D1C3DB0F1002D7D04 /* piece_white_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9657BB8C1C3DB0F1002D7D04 /* piece_white_normal.png */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9645DF901C4185E800D817B9 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		965499341C402A7900449F0F /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9657BB831C3D8120002D7D04 /* board_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = board_frame.png; path = boards/board_frame.png; sourceTree = "<group>"; };
 		9657BB8C1C3DB0F1002D7D04 /* piece_white_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = piece_white_normal.png; path = pieces/piece_white_normal.png; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				969F09761C3C6EC2001CA5A1 /* Piece.swift */,
 				969F09771C3C6EC2001CA5A1 /* Table.swift */,
 				965499341C402A7900449F0F /* Player.swift */,
+				9645DF901C4185E800D817B9 /* TODO.md */,
 			);
 			name = Tables1;
 			path = Tables;
@@ -288,6 +291,7 @@
 				9657BB911C3DB201002D7D04 /* piece_black_normal.png in Resources */,
 				969F09791C3C6EC2001CA5A1 /* Assets.xcassets in Resources */,
 				969F09801C3C6EC2001CA5A1 /* Info.plist in Resources */,
+				9645DF911C4185E800D817B9 /* TODO.md in Resources */,
 				9657BB921C3DB201002D7D04 /* piece_black_selected.png in Resources */,
 				969F097A1C3C6EC2001CA5A1 /* LaunchScreen.storyboard in Resources */,
 				9657BB8D1C3DB0F1002D7D04 /* piece_white_normal.png in Resources */,

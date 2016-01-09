@@ -24,5 +24,25 @@ class Player {
         return piece.side==side
     }
     
+    func rollDice() -> [Int] {
+        
+        for _ in 0...1 {
+            givenMoves.append(Int(arc4random_uniform(6) + 1))
+        }
+        if (givenMoves[0]==givenMoves[1]) {
+            givenMoves.append(givenMoves[0])
+            givenMoves.append(givenMoves[0])
+        }
+        return givenMoves
+    }
     
+    func removeFromMoves(num: Int) -> Bool {
+        for var i=0; i<givenMoves.count ; i++ {
+            if (givenMoves[i]==num) {
+                givenMoves.removeAtIndex(i)
+                return true
+            }
+        }
+        return false
+    }
 }

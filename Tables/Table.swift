@@ -30,8 +30,9 @@ class Table: SKSpriteNode {
         super.init(texture: nil, color: UIColor.init(red: 1, green: 1, blue: 1, alpha: 0), size: CGSize())
     }
     
-    func addPiece(side: String) {
-        let a = Piece(size: CGSize(width: self.frame.width, height: self.frame.width), side: side)
+    func addPiece(piece: Piece) {
+        let a = piece
+        a.deactivate()
         addChild(a)
         
         if bottom {
@@ -64,13 +65,7 @@ class Table: SKSpriteNode {
         if (self.children.last is Piece) {
             let a = (self.children.last as! Piece)
             a.color = UIColor.init(red: 0, green: 0, blue: 1, alpha: 1)
-            switch a.side {
-                case "white":
-                a.texture = SKTexture(imageNamed: "piece_white_selected")
-                case "black":
-                a.texture = SKTexture(imageNamed: "piece_black_selected")
-            default: break
-            }
+            a.activate()
             a.selected = true
             return true
         }
@@ -81,16 +76,14 @@ class Table: SKSpriteNode {
         if (self.children.last is Piece) {
             let a = (self.children.last as! Piece)
             a.color = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
-            switch a.side {
-            case "white":
-                a.texture = SKTexture(imageNamed: "piece_white_normal")
-            case "black":
-                a.texture = SKTexture(imageNamed: "piece_black_normal")
-            default: break
-            }
+            a.deactivate()
             a.selected = false
             return true
         }
         return false
+    }
+    
+    func movePiece(toTable: Table) {
+        toTable.addPiece(removePiece()!)
     }
 }

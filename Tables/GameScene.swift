@@ -18,7 +18,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
+//        myBoard.zRotation = CGFloat(M_PI)
         let frameScale = 1
         //print(pare.width)
         let tableWidthModifier = CGFloat(10)//0.02*frame.width
@@ -82,12 +82,17 @@ class GameScene: SKScene {
             switch table.id {
             case 1, 16:
                 for _ in 1...2 {
-                    table.addPiece("white")
+                    table.addPiece(Piece(size: CGSize(width: 115, height: 115), side: "white"))
                 }
-                
+            case 2, 17:
+                for _ in 1...2 {
+                    table.addPiece(Piece(size: CGSize(width: 115, height: 115), side: "black"))
+                }
             default: "Nothing is created"
             }
         }
+        
+        print(currentPlayer().rollDice())
         
         self.addChild(myBoard)
     }
@@ -100,16 +105,18 @@ class GameScene: SKScene {
         //Переписать под классовый метод Table.movePieceTo(Table)
         for touch in touches {
             
+//            if (currentPlayer().hasMoreTurns()) {
             let location = touch.locationInNode(self)
             let nodesWhereTouched = nodesAtPoint(location)
-            
+            print(currentPlayer().givenMoves)
             if (!selection) {
                 for node in nodesWhereTouched {
                     if (node is Table) {
                         let table = node as? Table
                         if (table?.children.last is Piece) {
                             let piece = table?.children.last as! Piece
-                            if (playerTurn(myBoard).controls(piece)) {
+                            if (currentPlayer().controls(piece)) {
+                                table?.selectTopPiece()
                                 selectedTable = table!
                                 selection = true
                             }
@@ -126,13 +133,24 @@ class GameScene: SKScene {
                             table?.deselectTopPiece()
                             selection = false
                         }
-                        else {
-                            table?.addPiece((selectedTable.removePiece()?.side)!)
+                        else if (currentPlayer().removeFromMoves(abs(selectedTable.id-table!.id))){
+                            table!.movePiece(selectedTable)
                             selection = false
+                            if (!currentPlayer().hasMoreTurns()) {
+                                switchTurns()
+                            }
                         }
                     }
                 }
             }
+                
+//            }
+//                
+//            else {
+//                switchTurns()
+//            }
+                
+                      
 //            print("X:%d | Y:%d", sampleRect.frame.midX, sampleRect.frame.midY)
 //            print("X:%d | Y:%d", location.x, location.y)
 //            for i in self.nodesAtPoint(location) {
@@ -167,13 +185,28 @@ class GameScene: SKScene {
     
     var turn = true
     
-    func playerTurn(board: Board) -> Player {
+//    lazy var PlayerWhite : Player = {
+//        return Player(side: "white")
+//    }()
+    var PlayerWhite = Player(side: "white")
+//    lazy var PlayerBlack : Player = {
+//        return Player(side: "black")
+//    }()
+    var PlayerBlack = Player(side: "black")
+    
+    func currentPlayer() -> Player {
         if (turn){
-            return Board.PlayerWhite
+            return PlayerWhite
         }
         else {
-            return Board.PlayerBlack
+            return PlayerBlack
         }
         
+    }
+    
+    func switchTurns() {
+        turn = !turn
+        currentPlayer().rollDice()
+        print(currentPlayer().side+" turn")
     }
 }

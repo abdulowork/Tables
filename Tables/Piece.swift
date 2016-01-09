@@ -34,6 +34,26 @@ class Piece: SKSpriteNode {
         
     }
     
+    func activate() {
+        switch side {
+        case "white":
+            texture = SKTexture(imageNamed: "piece_white_selected")
+        case "black":
+            texture = SKTexture(imageNamed: "piece_black_selected")
+        default: break
+        }
+    }
+    
+    func deactivate() {
+        switch side {
+        case "white":
+            texture = SKTexture(imageNamed: "piece_white_normal")
+        case "black":
+            texture = SKTexture(imageNamed: "piece_black_normal")
+        default: break
+        }
+    }
+    
     func set(num: Int) {
         table = num
     }

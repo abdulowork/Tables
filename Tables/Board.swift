@@ -11,12 +11,6 @@ import SpriteKit
 
 class Board: SKSpriteNode {
     
-    static var PlayerWhite : Player = {
-        return Player(side: "white")
-    }()
-    static var PlayerBlack : Player = {
-        return Player(side: "black")
-    }()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -27,17 +21,7 @@ class Board: SKSpriteNode {
         self.zPosition = -0.1
     }
     
-    func rollDice() -> [Int] {
-        var givenMoves = [Int]()
-        for _ in 0...1 {
-            givenMoves.append(Int(arc4random_uniform(6) + 1))
-        }
-        if (givenMoves[0]==givenMoves[1]) {
-            givenMoves.append(givenMoves[0])
-            givenMoves.append(givenMoves[0])
-        }
-        return givenMoves
-    }
+
     
     
     
