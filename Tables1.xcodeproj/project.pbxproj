@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9645DF911C4185E800D817B9 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 9645DF901C4185E800D817B9 /* TODO.md */; };
+		9645DF931C41B75B00D817B9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9645DF921C41B75B00D817B9 /* README.md */; };
 		965499351C402A7900449F0F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965499341C402A7900449F0F /* Player.swift */; };
 		9657BB841C3D8120002D7D04 /* board_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 9657BB831C3D8120002D7D04 /* board_frame.png */; };
 		9657BB8D1C3DB0F1002D7D04 /* piece_white_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9657BB8C1C3DB0F1002D7D04 /* piece_white_normal.png */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		9645DF901C4185E800D817B9 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		9645DF921C41B75B00D817B9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		965499341C402A7900449F0F /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9657BB831C3D8120002D7D04 /* board_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = board_frame.png; path = boards/board_frame.png; sourceTree = "<group>"; };
 		9657BB8C1C3DB0F1002D7D04 /* piece_white_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = piece_white_normal.png; path = pieces/piece_white_normal.png; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				969F09771C3C6EC2001CA5A1 /* Table.swift */,
 				965499341C402A7900449F0F /* Player.swift */,
 				9645DF901C4185E800D817B9 /* TODO.md */,
+				9645DF921C41B75B00D817B9 /* README.md */,
 			);
 			name = Tables1;
 			path = Tables;
@@ -325,6 +328,7 @@
 				969F09811C3C6EC2001CA5A1 /* Piece.swift in Sources */,
 				965499351C402A7900449F0F /* Player.swift in Sources */,
 				969F097C1C3C6EC2001CA5A1 /* Board.swift in Sources */,
+				9645DF931C41B75B00D817B9 /* README.md in Sources */,
 				969F09781C3C6EC2001CA5A1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

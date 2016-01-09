@@ -36,16 +36,53 @@ class Player {
         return givenMoves
     }
     
+    private func movesSum() -> Int {
+        var sum = 0
+        for i in givenMoves {
+            sum += i
+        }
+        return sum
+    }
+    
+    private func isDoubles() -> Bool {
+        let temp = givenMoves[0]
+        for i in givenMoves {
+            if (temp != i) {
+                return false
+            }
+        }
+        return true
+    }
+    
     private func removeFromMoves(num: Int) -> Bool {
-        for var i=0; i<givenMoves.count ; i++ {
-            if (givenMoves[i]==num) {
-                givenMoves.removeAtIndex(i)
-                return true
+        if (movesSum()==num) {
+            givenMoves.removeAll()
+            return true
+        }
+        if (isDoubles()) {
+            var sum = givenMoves[0]
+            for var i=0; i<givenMoves.count; i++ {
+                if (sum==num) {
+                    for _ in 1...i+1 {
+                        givenMoves.removeLast()
+                    }
+                    return true
+                }
+                sum += sum
+            }
+        }
+        else {
+            for var i=0; i<givenMoves.count; i++ {
+                if (givenMoves[i]==num) {
+                    givenMoves.removeAtIndex(i)
+                    return true
+                }
             }
         }
         return false
     }
     
+    //Moves piece from table to table and checks for all required conditions
     func go(fromTable: Table, toTable: Table) -> Bool {
         let goes = fromTable.id-toTable.id
         if (goes>0 && side=="white" && removeFromMoves(abs(goes))) {
