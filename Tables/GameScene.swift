@@ -11,7 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     let sampleRect = SKSpriteNode()
-    var selection = false
+    
     lazy var myBoard : Board = {
         return Board(size: self.frame.size)
     }()
@@ -58,7 +58,6 @@ class GameScene: SKScene {
                 bottom: false
                 ))
         }
-
         
         var j = 1
         for table in myBoard.children {
@@ -94,26 +93,31 @@ class GameScene: SKScene {
     }
     
     var selectedTable = Table()
+    var selection = false
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         //Переписать под классовый метод Table.movePieceTo(Table)
         for touch in touches {
+            
             let location = touch.locationInNode(self)
             let nodesWhereTouched = nodesAtPoint(location)
+            
             if (!selection) {
                 for node in nodesWhereTouched {
                     if (node is Table) {
-                        let a = node as? Table
-                        if (a!.selectTopPiece()) {
-                            selectedTable = a!
-                            selection = true
+                        let table = node as? Table
+                        if (table?.children.last is Piece) {
+                            let piece = table?.children.last as! Piece
+                            if (playerTurn(myBoard).controls(piece)) {
+                                selectedTable = table!
+                                selection = true
+                            }
                         }
                     }
                 }
             }
             
-            //This is done on purpose for optimization and easier logic implementation
             else if (selection) {
                 for node in nodesWhereTouched {
                     if (node is Table) {
@@ -159,5 +163,17 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    
+    var turn = true
+    
+    func playerTurn(board: Board) -> Player {
+        if (turn){
+            return Board.PlayerWhite
+        }
+        else {
+            return Board.PlayerBlack
+        }
+        
     }
 }

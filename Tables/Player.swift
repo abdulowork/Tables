@@ -9,10 +9,20 @@
 import SpriteKit
 
 class Player {
-    var controls = String()
+    var side = String()
+    var givenMoves = [Int]()
     
-    init(controls: String) {
-        self.controls = controls
+    init(side: String) {
+        self.side = side
     }
+    
+    func hasMoreTurns() -> Bool {
+        return !givenMoves.isEmpty
+    }
+    
+    func controls(piece: Piece) -> Bool {
+        return piece.side==side
+    }
+    
     
 }

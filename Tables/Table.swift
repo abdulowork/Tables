@@ -12,6 +12,7 @@ class Table: SKSpriteNode {
     
     var bottom = Bool()
     var id = Int()
+    var p_num = Int()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -43,8 +44,12 @@ class Table: SKSpriteNode {
             let y2 = (a.frame.height)*CGFloat((self.children.count-2)) //Scaling factor for number of pieces in a table
             a.position = CGPoint(x: 0, y: y1-y2)
         }
+        p_num++
     }
     
+//    func canAcceptPiece(piece: Piece) {
+//        if ()
+//    }
     
     func removePiece() -> Piece? {
         let piece = self.children.last
