@@ -102,7 +102,6 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        //Переписать под классовый метод Table.movePieceTo(Table)
         for touch in touches {
             
 //            if (currentPlayer().hasMoreTurns()) {
@@ -129,12 +128,7 @@ class GameScene: SKScene {
                 for node in nodesWhereTouched {
                     if (node is Table) {
                         let table = node as? Table
-                        if (table!.isEqual(selectedTable)) {
-                            table?.deselectTopPiece()
-                            selection = false
-                        }
-                        else if (currentPlayer().removeFromMoves(abs(selectedTable.id-table!.id))){
-                            table!.movePiece(selectedTable)
+                        if (currentPlayer().go(selectedTable, toTable: table!)) {
                             selection = false
                             if (!currentPlayer().hasMoreTurns()) {
                                 switchTurns()

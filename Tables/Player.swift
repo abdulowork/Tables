@@ -36,7 +36,7 @@ class Player {
         return givenMoves
     }
     
-    func removeFromMoves(num: Int) -> Bool {
+    private func removeFromMoves(num: Int) -> Bool {
         for var i=0; i<givenMoves.count ; i++ {
             if (givenMoves[i]==num) {
                 givenMoves.removeAtIndex(i)
@@ -45,4 +45,22 @@ class Player {
         }
         return false
     }
+    
+    func go(fromTable: Table, toTable: Table) -> Bool {
+        let goes = fromTable.id-toTable.id
+        if (goes>0 && side=="white" && removeFromMoves(abs(goes))) {
+            fromTable.movePiece(toTable)
+            return true
+        }
+        if (goes<0 && side=="black" && removeFromMoves(abs(goes))) {
+            fromTable.movePiece(toTable)
+            return true
+        }
+        if (goes==0) {
+            fromTable.movePiece(toTable)
+            return true
+        }
+        return false
+    }
+    
 }
