@@ -82,17 +82,17 @@ class GameScene: SKScene {
             switch table.id {
             case 1, 16:
                 for _ in 1...2 {
-                    table.addPiece(Piece(size: CGSize(width: 115, height: 115), side: "white"))
+                    table.addPiece(Piece(size: CGSize(width: 115, height: 115), side: "white", player: PlayerWhite))
                 }
             case 2, 17:
                 for _ in 1...2 {
-                    table.addPiece(Piece(size: CGSize(width: 115, height: 115), side: "black"))
+                    table.addPiece(Piece(size: CGSize(width: 115, height: 115), side: "black", player: PlayerBlack))
                 }
             default: "Nothing is created"
             }
         }
         
-        print(currentPlayer().rollDice())
+        currentPlayer().rollDice() //first roll
         
         self.addChild(myBoard)
     }
@@ -104,10 +104,9 @@ class GameScene: SKScene {
        /* Called when a touch begins */
         for touch in touches {
             
-//            if (currentPlayer().hasMoreTurns()) {
             let location = touch.locationInNode(self)
             let nodesWhereTouched = nodesAtPoint(location)
-            print(currentPlayer().givenMoves)
+            
             if (!selection) {
                 for node in nodesWhereTouched {
                     if (node is Table) {
@@ -130,6 +129,7 @@ class GameScene: SKScene {
                         let table = node as? Table
                         if (currentPlayer().go(selectedTable, toTable: table!)) {
                             selection = false
+                            print(currentPlayer().givenMoves)
                             if (!currentPlayer().hasMoreTurns()) {
                                 switchTurns()
                             }
@@ -138,27 +138,7 @@ class GameScene: SKScene {
                 }
             }
                 
-//            }
-//                
-//            else {
-//                switchTurns()
-//            }
-                
-                      
-//            print("X:%d | Y:%d", sampleRect.frame.midX, sampleRect.frame.midY)
-//            print("X:%d | Y:%d", location.x, location.y)
-//            for i in self.nodesAtPoint(location) {
-//                print(i)
-//            }
-//            if (CGRectIntersectsRect(sampleRect.frame, CGRect(origin: location, size: CGSize(width: 1, height: 1))) && !selection) {
-//                sampleRect.color = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1)
-//                selection = true
-//            }
-//            else if (selection) {
-//                sampleRect.color = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
-//                sampleRect.position = location
-//                selection = false
-//            }
+            
 //            let sprite = SKSpriteNode(imageNamed:"Spaceship")
 //
 //            sprite.xScale = 0.5
@@ -179,13 +159,7 @@ class GameScene: SKScene {
     
     var turn = true
     
-//    lazy var PlayerWhite : Player = {
-//        return Player(side: "white")
-//    }()
     var PlayerWhite = Player(side: "white")
-//    lazy var PlayerBlack : Player = {
-//        return Player(side: "black")
-//    }()
     var PlayerBlack = Player(side: "black")
     
     func currentPlayer() -> Player {
@@ -199,6 +173,7 @@ class GameScene: SKScene {
     }
     
     func switchTurns() {
+        currentPlayer().givenMoves.removeAll()
         turn = !turn
         currentPlayer().rollDice()
         print(currentPlayer().side+" turn")

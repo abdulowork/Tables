@@ -34,7 +34,7 @@ class Table: SKSpriteNode {
         let a = piece
         a.deactivate()
         addChild(a)
-        
+        print(a.getTableID())
         if bottom {
             let y1 = self.frame.minY-self.position.y+a.frame.height/2+24
             let y2 = (a.frame.height)*CGFloat((self.children.count-2)) //Scaling factor for number of pieces in a table, replace with another logic

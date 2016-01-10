@@ -11,13 +11,31 @@ import SpriteKit
 class Player {
     var side = String()
     var givenMoves = [Int]()
+    var pieces = [Piece]()
     
     init(side: String) {
         self.side = side
     }
     
     func hasMoreTurns() -> Bool {
-        return !givenMoves.isEmpty
+        var a = false
+        for piece in pieces {
+            if (self.side=="white") {
+                for move in givenMoves {
+                    if ((piece.getTableID()-move)>1) {
+                        a = true
+                    }
+                }
+            }
+            if (self.side=="black") {
+                for move in givenMoves {
+                    if ((piece.getTableID()+move)<24) {
+                        a = true
+                    }
+                }
+            }
+        }
+        return (!givenMoves.isEmpty && a)
     }
     
     func controls(piece: Piece) -> Bool {
@@ -33,7 +51,12 @@ class Player {
             givenMoves.append(givenMoves[0])
             givenMoves.append(givenMoves[0])
         }
+
+        givenMoves.sortInPlace()
+        
+        print(givenMoves)
         return givenMoves
+        
     }
     
     private func movesSum() -> Int {
@@ -68,7 +91,7 @@ class Player {
                     }
                     return true
                 }
-                sum += sum
+                sum += givenMoves[0]
             }
         }
         else {

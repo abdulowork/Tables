@@ -12,7 +12,6 @@ import SpriteKit
 class Piece: SKSpriteNode {
     
     var id = Int()
-    var table = Int()
     var selected = false
     var side = String()
     
@@ -21,17 +20,18 @@ class Piece: SKSpriteNode {
         fatalError("NSCoding not supported")
     }
     
-    init(size: CGSize, side: String) {
+    init(size: CGSize, side: String, player: Player) {
         self.side = side
         if (side == "white") {
             let texture = SKTexture(imageNamed: "piece_white_normal")
             super.init(texture: texture, color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 1), size: size)
+            
         }
         else {
             let texture = SKTexture(imageNamed: "piece_black_normal")
             super.init(texture: texture, color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 1), size: size)
         }
-        
+        player.pieces.append(self)
     }
     
     func activate() {
@@ -54,11 +54,8 @@ class Piece: SKSpriteNode {
         }
     }
     
-    func set(num: Int) {
-        table = num
+    func getTableID() -> Int {
+        return (self.parent as! Table).id
     }
     
-    func get() -> Int {
-        return table
-    }
 }
